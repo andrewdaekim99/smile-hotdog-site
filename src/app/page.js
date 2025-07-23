@@ -39,7 +39,7 @@ export default function Home() {
           </div>
 
           {/* Three Corndog Images with Floating Animation */}
-          <div className="relative flex items-center justify-center gap-6 md:gap-12" style={{ perspective: '1000px' }}>
+          <div className="relative flex items-center justify-center gap-2 md:gap-6 lg:gap-12" style={{ perspective: '1000px' }}>
             {/* Left Corndog - Floating Animation */}
             <div className={`transform transition-all duration-1000 ease-out ${corndogsVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`} style={{ zIndex: 10 }}>
               <div className="float-animation">
@@ -50,7 +50,7 @@ export default function Home() {
                   height={400}
                   className="w-36 md:w-56 h-auto -rotate-12 md:-rotate-6 drop-shadow-2xl"
                   style={{ 
-                    marginRight: '-30px',
+                    marginRight: '0px',
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 10px 20px rgba(0,0,0,0.2))'
                   }}
                 />
@@ -67,8 +67,8 @@ export default function Home() {
                   height={400}
                   className="w-44 md:w-72 h-auto drop-shadow-2xl"
                   style={{ 
-                    marginLeft: '-15px', 
-                    marginRight: '-15px',
+                    marginLeft: '0px', 
+                    marginRight: '0px',
                     filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.4)) drop-shadow(0 15px 30px rgba(0,0,0,0.3))'
                   }}
                 />
@@ -85,7 +85,7 @@ export default function Home() {
                   height={400}
                   className="w-36 md:w-56 h-auto rotate-12 md:rotate-6 drop-shadow-2xl"
                   style={{ 
-                    marginLeft: '-30px',
+                    marginLeft: '0px',
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3)) drop-shadow(0 10px 20px rgba(0,0,0,0.2))'
                   }}
                 />
