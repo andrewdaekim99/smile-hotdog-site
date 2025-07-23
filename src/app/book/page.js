@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 
 export default function BookPage() {
   const [formData, setFormData] = useState({
@@ -13,49 +13,6 @@ export default function BookPage() {
     guests: '',
     message: ''
   })
-  const [autocomplete, setAutocomplete] = useState(null)
-  const locationInputRef = useRef(null)
-
-  // Load Google Maps API
-  useEffect(() => {
-    const loadGoogleMapsAPI = () => {
-      if (window.google && window.google.maps) {
-        initializeAutocomplete()
-        return
-      }
-
-      const script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`
-      script.async = true
-      script.defer = true
-      script.onload = initializeAutocomplete
-      document.head.appendChild(script)
-    }
-
-    loadGoogleMapsAPI()
-  }, [])
-
-  const initializeAutocomplete = () => {
-    if (!locationInputRef.current || !window.google) return
-
-    const autocompleteInstance = new window.google.maps.places.Autocomplete(locationInputRef.current, {
-      types: ['address'],
-      componentRestrictions: { country: 'us' },
-      fields: ['formatted_address', 'geometry', 'place_id']
-    })
-
-    autocompleteInstance.addListener('place_changed', () => {
-      const place = autocompleteInstance.getPlace()
-      if (place.formatted_address) {
-        setFormData(prev => ({
-          ...prev,
-          location: place.formatted_address
-        }))
-      }
-    })
-
-    setAutocomplete(autocompleteInstance)
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -213,18 +170,14 @@ export default function BookPage() {
                     Event Location *
                   </label>
                   <input
-                    ref={locationInputRef}
                     type="text"
                     name="location"
                     value={formData.location}
                     onChange={handleChange}
                     required
-                    placeholder="Start typing to search for an address..."
+                    placeholder="Full address or venue name"
                     className="w-full px-3 py-2 border border-[#EA9841]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#EA9841] focus:border-transparent"
                   />
-                  <p className="text-xs text-[#EA9841] mt-1 font-body">
-                    💡 Start typing to see address suggestions from Google Maps
-                  </p>
                 </div>
 
                 <div>
