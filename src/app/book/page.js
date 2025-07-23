@@ -29,6 +29,26 @@ export default function BookPage() {
     }))
   }
 
+  // Phone number formatting function
+  const formatPhoneNumber = (value) => {
+    // Remove all non-digits
+    const phoneNumber = value.replace(/\D/g, '')
+    
+    // Format based on length
+    if (phoneNumber.length === 0) return ''
+    if (phoneNumber.length <= 3) return `(${phoneNumber}`
+    if (phoneNumber.length <= 6) return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`
+  }
+
+  const handlePhoneChange = (e) => {
+    const formattedValue = formatPhoneNumber(e.target.value)
+    setFormData(prev => ({
+      ...prev,
+      phone: formattedValue
+    }))
+  }
+
   return (
     <div className="min-h-screen bg-[#FFF8E1]">
       {/* Header */}
@@ -87,7 +107,9 @@ export default function BookPage() {
                     type="tel"
                     name="phone"
                     value={formData.phone}
-                    onChange={handleChange}
+                    onChange={handlePhoneChange}
+                    placeholder="(555) 123-4567"
+                    maxLength="14"
                     className="w-full px-3 py-2 border border-[#EA9841]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#EA9841] focus:border-transparent"
                   />
                 </div>
