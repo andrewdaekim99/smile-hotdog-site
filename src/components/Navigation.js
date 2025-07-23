@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
@@ -35,14 +36,18 @@ export default function Navigation() {
     return (
       <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-[#EA9841]/20">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[#EA9841] rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">K</span>
-              </div>
-              <span className="text-xl font-bold text-[#1D4E1A]">Korean Fusion</span>
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center">
+              <Image
+                src="/images/smile_logo.png"
+                alt="Korean Fusion Logo"
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="w-auto h-12"
+              />
             </div>
-            <div className="text-[#1D4E1A]">Loading...</div>
+            <div className="text-[#1D4E1A] font-body">Loading...</div>
           </div>
         </div>
       </nav>
@@ -52,22 +57,28 @@ export default function Navigation() {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-[#EA9841]/20">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20 w-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-[#EA9841] rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">K</span>
-            </div>
-            <span className="text-xl font-bold text-[#1D4E1A]">Korean Fusion</span>
-          </Link>
+          <div className="flex items-center h-full flex-1 justify-start">
+            <Link href="/" className="flex items-center h-full">
+              <Image
+                src="/images/smile_logo.png"
+                alt="Korean Fusion Logo"
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="w-auto h-12"
+              />
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center h-full justify-center space-x-8 flex-1">
             {authenticatedNavItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-[#1D4E1A] hover:text-[#EA9841] font-medium transition-colors duration-200 relative group"
+                className="text-[#1D4E1A] hover:text-[#EA9841] font-medium transition-colors duration-200 relative group font-body h-full flex items-center"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EA9841] transition-all duration-200 group-hover:w-full"></span>
@@ -76,23 +87,23 @@ export default function Navigation() {
           </div>
 
           {/* Desktop Auth Buttons and Cart */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center h-full space-x-4 flex-1 justify-end">
             <CartIcon />
             {isAuthenticated ? (
               <>
                 <div className="flex items-center space-x-3">
-                  <span className="text-sm text-[#1D4E1A]">
+                  <span className="text-sm text-[#1D4E1A] font-body">
                     Welcome, {user?.first_name}!
                   </span>
                   <div className="flex items-center space-x-2">
-                    <span className="text-xs text-[#EA9841] font-medium">
+                    <span className="text-xs text-[#EA9841] font-medium font-body">
                       {user?.points || 0} pts
                     </span>
                   </div>
                 </div>
                 <button
                   onClick={handleSignOut}
-                  className="text-[#1D4E1A] hover:text-[#EA9841] font-medium transition-colors"
+                  className="text-[#1D4E1A] hover:text-[#EA9841] font-medium transition-colors font-body"
                 >
                   Sign Out
                 </button>
@@ -100,12 +111,12 @@ export default function Navigation() {
             ) : (
               <>
                 <Link href="/signin">
-                  <button className="text-[#1D4E1A] hover:text-[#EA9841] font-medium transition-colors">
+                  <button className="text-[#1D4E1A] hover:text-[#EA9841] font-medium transition-colors font-body">
                     Sign In
                   </button>
                 </Link>
                 <Link href="/signup">
-                  <button className="bg-[#EA9841] text-white px-4 py-2 rounded-md font-medium hover:bg-[#d88a3a] transition-colors">
+                  <button className="bg-[#EA9841] text-white px-4 py-2 rounded-md font-medium hover:bg-[#d88a3a] transition-colors font-body">
                     Sign Up
                   </button>
                 </Link>
@@ -118,7 +129,7 @@ export default function Navigation() {
             <CartIcon />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#F5F5DC] transition-colors"
+                              className="p-2 rounded-md text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#FFECB8] transition-colors"
             >
               <svg
                 className="w-6 h-6"
@@ -154,7 +165,7 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-3 py-2 text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#F5F5DC] rounded-md font-medium transition-colors"
+                  className="block px-3 py-2 text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#FFECB8] rounded-md font-medium transition-colors font-body"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -163,10 +174,10 @@ export default function Navigation() {
               <div className="border-t border-[#EA9841]/20 pt-2 mt-2">
                 {isAuthenticated ? (
                   <>
-                    <div className="px-3 py-2 text-sm text-[#1D4E1A]">
+                    <div className="px-3 py-2 text-sm text-[#1D4E1A] font-body">
                       Welcome, {user?.first_name}!
                     </div>
-                    <div className="px-3 py-2 text-xs text-[#EA9841] font-medium">
+                    <div className="px-3 py-2 text-xs text-[#EA9841] font-medium font-body">
                       {user?.points || 0} points
                     </div>
                     <button
@@ -174,7 +185,7 @@ export default function Navigation() {
                         handleSignOut()
                         setIsMenuOpen(false)
                       }}
-                      className="block w-full text-left px-3 py-2 text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#F5F5DC] rounded-md font-medium transition-colors"
+                      className="block w-full text-left px-3 py-2 text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#FFECB8] rounded-md font-medium transition-colors font-body"
                     >
                       Sign Out
                     </button>
@@ -183,14 +194,14 @@ export default function Navigation() {
                   <>
                     <Link
                       href="/signin"
-                      className="block px-3 py-2 text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#F5F5DC] rounded-md font-medium transition-colors"
+                      className="block px-3 py-2 text-[#1D4E1A] hover:text-[#EA9841] hover:bg-[#FFECB8] rounded-md font-medium transition-colors font-body"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Sign In
                     </Link>
                     <Link
                       href="/signup"
-                      className="block px-3 py-2 text-[#EA9841] hover:bg-[#EA9841] hover:text-white rounded-md font-medium transition-colors"
+                      className="block px-3 py-2 text-[#EA9841] hover:bg-[#EA9841] hover:text-white rounded-md font-medium transition-colors font-body"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Sign Up

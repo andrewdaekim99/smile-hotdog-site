@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function DebugTableStructurePage() {
   const [data, setData] = useState(null)
@@ -29,7 +30,7 @@ export default function DebugTableStructurePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] py-8">
+      <div className="min-h-screen bg-[#FFF8E1] py-8">
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-md p-6">
             <h1 className="text-2xl font-bold text-[#1D4E1A] mb-6">Loading...</h1>
@@ -41,7 +42,7 @@ export default function DebugTableStructurePage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] py-8">
+      <div className="min-h-screen bg-[#FFF8E1] py-8">
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-md p-6">
             <h1 className="text-2xl font-bold text-[#1D4E1A] mb-6">Error</h1>
@@ -55,7 +56,7 @@ export default function DebugTableStructurePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC] py-8">
+    <div className="min-h-screen bg-[#FFF8E1] py-8">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-lg shadow-md p-6">
           <h1 className="text-2xl font-bold text-[#1D4E1A] mb-6">Customers Table Structure</h1>
@@ -134,12 +135,7 @@ export default function DebugTableStructurePage() {
             >
               Clear Auth User
             </a>
-            <a 
-              href="/" 
-              className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400 transition-colors"
-            >
-              Home
-            </a>
+            <Link href="/">Home</Link>
           </div>
         </div>
       </div>

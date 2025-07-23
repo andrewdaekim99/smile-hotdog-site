@@ -108,10 +108,10 @@ export default function MenuPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EA9841] mx-auto mb-4"></div>
-          <p className="text-[#1D4E1A]">Loading menu...</p>
+          <p className="text-[#1D4E1A] font-body">Loading menu...</p>
         </div>
       </div>
     )
@@ -119,13 +119,13 @@ export default function MenuPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-[#1D4E1A] mb-4">Error Loading Menu</h1>
-          <p className="text-[#1D4E1A] mb-6">{error}</p>
+          <h1 className="text-2xl font-bold text-[#1D4E1A] mb-4 font-display">Error Loading Menu</h1>
+          <p className="text-[#1D4E1A] mb-6 font-body">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="bg-[#EA9841] text-white px-6 py-3 rounded-md font-medium hover:bg-[#d88a3a] transition-colors"
+            className="bg-[#EA9841] text-white px-6 py-3 rounded-md font-medium hover:bg-[#d88a3a] transition-colors font-body"
           >
             Try Again
           </button>
@@ -135,16 +135,16 @@ export default function MenuPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FFF8E1]">
       {/* Header */}
-      <div className="bg-white shadow-md border-b border-[#8B4513]/20">
+              <div className="bg-[#FFECB8] shadow-md border-b border-[#EA9841]/20">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold text-[#2C1810] text-center">Our Menu</h1>
-          <p className="text-[#2C1810] mt-3 text-center text-lg">Explore our authentic Korean fusion dishes</p>
+          <h1 className="text-4xl font-bold text-[#2C1810] text-center font-display">Our Menu</h1>
+          <p className="text-[#2C1810] mt-3 text-center text-lg font-body">Explore our authentic Korean fusion dishes</p>
           <div className="mt-6 text-center">
             <button 
               onClick={() => window.location.href = '/order'}
-              className="bg-[#EA9841] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#d88a3a] transition-colors duration-200 text-lg"
+              className="bg-[#EA9841] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#d88a3a] transition-colors duration-200 text-lg font-body"
             >
               Order Now
             </button>
@@ -153,7 +153,7 @@ export default function MenuPage() {
       </div>
 
       {/* Mobile Category Filter */}
-      <div className="md:hidden bg-white border-b border-[#8B4513]/20 sticky top-16 z-10">
+      <div className="md:hidden bg-[#FFECB8] border-b border-[#EA9841]/20 sticky top-16 z-10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
             {menuCategories.map((category) => (
@@ -162,12 +162,12 @@ export default function MenuPage() {
                 onClick={() => scrollToCategory(category.name)}
                 className={`flex-shrink-0 px-4 py-2 rounded-full font-medium transition-all duration-200 text-sm flex items-center gap-2 whitespace-nowrap ${
                   activeCategory === category.name
-                    ? 'bg-gradient-to-r from-[#8B4513] to-[#6B3410] text-white shadow-lg'
-                    : 'bg-[#F5F5DC] text-[#2C1810] hover:bg-[#8B4513] hover:text-white hover:shadow-md'
+                    ? 'bg-gradient-to-r from-[#1D4E1A] to-[#163d15] text-white shadow-lg'
+                    : 'bg-[#FFF8E1] text-[#1D4E1A] hover:bg-[#1D4E1A] hover:text-white hover:shadow-md'
                 }`}
               >
                 <span className="text-base">{category.icon}</span>
-                <span>{category.name}</span>
+                <span className="font-body">{category.name}</span>
               </button>
             ))}
           </div>
@@ -176,9 +176,9 @@ export default function MenuPage() {
 
       <div className="flex">
         {/* Desktop Fixed Vertical Sidebar Navigation */}
-        <div className="hidden md:block fixed left-0 top-0 h-full w-48 bg-white/95 backdrop-blur-sm shadow-xl border-r border-[#8B4513]/20 z-20 pt-32">
+        <div className="hidden md:block fixed left-0 top-0 h-full w-48 bg-[#FFECB8]/95 backdrop-blur-sm shadow-xl border-r border-[#EA9841]/20 z-20 pt-32">
           <div className="p-3">
-            <h3 className="text-sm font-bold text-[#2C1810] mb-4 text-center uppercase tracking-wide">Categories</h3>
+            <h3 className="text-sm font-bold text-[#1D4E1A] mb-4 text-center uppercase tracking-wide font-display">Categories</h3>
             <nav className="space-y-1">
               {menuCategories.map((category) => (
                 <button
@@ -186,12 +186,12 @@ export default function MenuPage() {
                   onClick={() => scrollToCategory(category.name)}
                   className={`w-full text-left px-3 py-2.5 rounded-lg font-medium transition-all duration-200 text-sm flex items-center gap-2 ${
                     activeCategory === category.name
-                      ? 'bg-gradient-to-r from-[#8B4513] to-[#6B3410] text-white shadow-lg'
-                      : 'bg-[#F5F5DC]/50 text-[#2C1810] hover:bg-[#8B4513] hover:text-white hover:shadow-md'
+                      ? 'bg-gradient-to-r from-[#1D4E1A] to-[#163d15] text-white shadow-lg'
+                      : 'bg-[#FFF8E1]/50 text-[#1D4E1A] hover:bg-[#1D4E1A] hover:text-white hover:shadow-md'
                   }`}
                 >
                   <span className="text-base">{category.icon}</span>
-                  <span className="truncate">{category.name}</span>
+                  <span className="truncate font-body">{category.name}</span>
                 </button>
               ))}
             </nav>
@@ -210,35 +210,35 @@ export default function MenuPage() {
                 <div className="text-center mb-8 md:mb-12">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-3xl md:text-4xl">{category.icon}</span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#2C1810]">{category.name}</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#2C1810] font-display">{category.name}</h2>
                   </div>
-                  <p className="text-lg md:text-xl text-[#2C1810] max-w-2xl mx-auto px-4">{category.description}</p>
+                  <p className="text-lg md:text-xl text-[#2C1810] max-w-2xl mx-auto px-4 font-body">{category.description}</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   {category.items.map((item) => (
-                    <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-[#8B4513]/20 hover:shadow-lg transition-shadow duration-300">
-                      <div className="aspect-video bg-gradient-to-br from-[#F5F5DC] to-[#8B4513]/30 relative">
+                    <div key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-[#EA9841]/20 hover:shadow-lg transition-shadow duration-300">
+                      <div className="aspect-video bg-gradient-to-br from-[#FFF8E1] to-[#EA9841]/30 relative">
                         {/* Placeholder for image */}
-                        <div className="absolute inset-0 flex items-center justify-center text-[#2C1810] font-medium">
+                        <div className="absolute inset-0 flex items-center justify-center text-[#1D4E1A] font-medium">
                           {item.name} Image
                         </div>
                       </div>
                       
                       <div className="p-4 md:p-6">
                         <div className="flex justify-between items-start mb-3 md:mb-4">
-                          <h3 className="text-lg md:text-xl font-bold text-[#2C1810]">{item.name}</h3>
-                          <span className="text-lg md:text-xl font-bold text-[#8B4513]">{formatPrice(item.price)}</span>
+                          <h3 className="text-lg md:text-xl font-bold text-[#1D4E1A] font-display">{item.name}</h3>
+                          <span className="text-lg md:text-xl font-bold text-[#EA9841] font-body">{formatPrice(item.price)}</span>
                         </div>
                         
-                        <p className="text-[#2C1810] mb-4 md:mb-6 leading-relaxed text-sm">{item.description}</p>
+                        <p className="text-[#1D4E1A] mb-4 md:mb-6 leading-relaxed text-sm font-body">{item.description}</p>
                         
                         <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4">
                           <div>
-                            <h4 className="font-semibold text-[#1D4E1A] mb-2 text-sm">Ingredients</h4>
+                            <h4 className="font-semibold text-[#1D4E1A] mb-2 text-sm font-display">Ingredients</h4>
                             <ul className="text-xs text-primary-green space-y-1">
                               {item.ingredients.map((ingredient, index) => (
-                                <li key={index} className="flex items-center">
+                                <li key={index} className="flex items-center font-body">
                                   <span className="w-1.5 h-1.5 bg-[#EA9841] rounded-full mr-2"></span>
                                   {ingredient}
                                 </li>
@@ -246,19 +246,19 @@ export default function MenuPage() {
                             </ul>
                           </div>
                           <div>
-                            <h4 className="font-semibold text-[#1D4E1A] mb-2 text-sm">Details</h4>
-                            <div className="space-y-2 text-xs text-primary-green">
-                              <div className="flex justify-between items-center p-2 bg-[#FFF8E1] rounded">
-                                <span className="font-medium">Spice Level:</span>
-                                <span className="px-2 py-1 bg-[#EA9841] text-white rounded text-xs">
-                                  {item.spiceLevel}
-                                </span>
+                            <h4 className="font-semibold text-[#1D4E1A] mb-2 text-sm font-display">Details</h4>
+                                                          <div className="space-y-2 text-xs text-primary-green">
+                                <div className="flex justify-between items-center p-2 bg-[#FFF8E1] rounded">
+                                  <span className="font-medium font-body">Spice Level:</span>
+                                  <span className="px-2 py-1 bg-[#EA9841] text-white rounded text-xs font-body">
+                                    {item.spiceLevel}
+                                  </span>
+                                </div>
+                                <div className="flex justify-between items-center p-2 bg-[#FFF8E1] rounded">
+                                  <span className="font-medium font-body">Prep Time:</span>
+                                  <span className="font-body">{item.prepTime}</span>
+                                </div>
                               </div>
-                              <div className="flex justify-between items-center p-2 bg-[#FFF8E1] rounded">
-                                <span className="font-medium">Prep Time:</span>
-                                <span>{item.prepTime}</span>
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </div>

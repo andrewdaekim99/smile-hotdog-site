@@ -74,7 +74,7 @@ export default function ForgotPassword() {
             Reset Your Password
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Enter your email address and we'll send you a link to reset your password.
+            Enter your email address and we&apos;ll send you a link to reset your password.
           </p>
         </div>
 
@@ -170,7 +170,7 @@ export default function ForgotPassword() {
           <div className="space-y-3 text-sm text-gray-600">
             <div className="flex items-start">
               <span className="text-primary-orange mr-2 mt-0.5">•</span>
-              <span>Check your email spam folder if you don't see the reset link</span>
+              <span>Check your email spam folder if you don&apos;t see the reset link</span>
             </div>
             <div className="flex items-start">
               <span className="text-primary-orange mr-2 mt-0.5">•</span>

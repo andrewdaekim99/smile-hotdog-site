@@ -58,7 +58,7 @@ export default function CreateCustomerPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC] py-8">
+    <div className="min-h-screen bg-[#FFF8E1] py-8">
       <div className="container mx-auto px-4 max-w-md">
         <div className="bg-white rounded-lg shadow-md p-6">
           <h1 className="text-2xl font-bold text-[#1D4E1A] mb-6 text-center">
@@ -175,6 +175,9 @@ export default function CreateCustomerPage() {
               Test Sign In
             </a>
           </div>
+
+          <p className="text-xs text-gray-500">Password must be at least 8 characters and contain at least one number, one uppercase letter, and one special character (e.g. &quot;!@#$%&quot;).</p>
+          <p className="text-sm text-gray-500">Type &quot;CREATE&quot; to confirm customer creation. This action cannot be undone.</p>
         </div>
       </div>
     </div>

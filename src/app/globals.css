@@ -2,15 +2,26 @@
 
 :root {
   --primary-orange: #EA9841;
-  --primary-cream: #F5F5DC;
+  --primary-cream: #FFF8E1;
   --primary-green: #1D4E1A;
+  --primary-yellow: #FFECB8;
   --primary-dark: #2C1810;
 }
 
 @layer base {
   body {
     color: #1D4E1A;
-    background-color: #F5F5DC;
+    background-color: #FFF8E1;
+    font-family: var(--font-cabin-condensed), system-ui, sans-serif;
+  }
+  
+  /* Font classes for easy use */
+  .font-display {
+    font-family: var(--font-calistoga), serif;
+  }
+  
+  .font-body {
+    font-family: var(--font-cabin-condensed), system-ui, sans-serif;
   }
 }
 

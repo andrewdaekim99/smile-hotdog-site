@@ -46,7 +46,7 @@ export default function ClearUserPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC] py-8">
+    <div className="min-h-screen bg-[#FFF8E1] py-8">
       <div className="container mx-auto px-4 max-w-md">
         <div className="bg-white rounded-lg shadow-md p-6">
           <h1 className="text-2xl font-bold text-[#1D4E1A] mb-6 text-center">
@@ -110,6 +110,8 @@ export default function ClearUserPage() {
               ← Back to Signup
             </a>
           </div>
+
+          <p className="text-sm text-gray-500">Type &quot;CLEAR&quot; to confirm user deletion. This action cannot be undone.</p>
         </div>
       </div>
     </div>

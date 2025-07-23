@@ -57,7 +57,7 @@ export default function OrderConfirmationPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EA9841] mx-auto mb-4"></div>
           <p className="text-[#1D4E1A]">Loading order details...</p>
@@ -68,7 +68,7 @@ export default function OrderConfirmationPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-[#1D4E1A] mb-4">Order Not Found</h1>
           <p className="text-[#1D4E1A] mb-6">{error}</p>
@@ -88,7 +88,7 @@ export default function OrderConfirmationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC] py-8">
+    <div className="min-h-screen bg-[#FFF8E1] py-8">
       <div className="container mx-auto px-4 max-w-2xl">
         {/* Success Header */}
         <div className="text-center mb-8">
@@ -201,8 +201,8 @@ export default function OrderConfirmationPage() {
         )}
 
         {/* Next Steps */}
-        <div className="bg-[#F5F5DC] rounded-lg p-6 mb-6">
-          <h2 className="text-xl font-bold text-[#1D4E1A] mb-4">What's Next?</h2>
+        <div className="bg-[#FFECB8] rounded-lg p-6 mb-6">
+          <h2 className="text-xl font-bold text-[#1D4E1A] mb-4">What&apos;s Next?</h2>
           
           <div className="space-y-3">
             <div className="flex items-start">
@@ -211,7 +211,7 @@ export default function OrderConfirmationPage() {
               </div>
               <div>
                 <p className="font-medium text-[#1D4E1A]">Order Confirmation</p>
-                <p className="text-sm text-gray-600">We've received your order and will start preparing it soon.</p>
+                <p className="text-sm text-gray-600">We&apos;ve received your order and will start preparing it soon.</p>
               </div>
             </div>
             
@@ -251,6 +251,14 @@ export default function OrderConfirmationPage() {
           >
             Order Again
           </button>
+        </div>
+
+        {/* Confirmation Email */}
+        <div className="bg-white rounded-lg shadow-md p-6 mt-6">
+          <h2 className="text-xl font-bold text-[#1D4E1A] mb-4">Confirmation Email</h2>
+          
+          <p className="text-xs text-gray-500">We&apos;ve sent a confirmation email to your address.</p>
+          <p className="text-xs text-gray-500">If you don&apos;t see it, check your spam folder.</p>
         </div>
       </div>
     </div>

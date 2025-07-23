@@ -1,11 +1,21 @@
-import { Inter } from 'next/font/google'
+import { Calistoga, Cabin_Condensed } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { CartProvider } from '@/contexts/CartContext'
 import CartSidebar from '@/components/CartSidebar'
 
-const inter = Inter({ subsets: ['latin'] })
+const calistoga = Calistoga({ 
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-calistoga'
+})
+
+const cabinCondensed = Cabin_Condensed({ 
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-cabin-condensed'
+})
 
 export const metadata = {
   title: 'Korean Fusion Food Truck',
@@ -15,7 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${calistoga.variable} ${cabinCondensed.variable} font-sans`}>
         <AuthProvider>
           <CartProvider>
             <Navigation />

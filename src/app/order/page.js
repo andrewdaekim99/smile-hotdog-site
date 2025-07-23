@@ -92,10 +92,10 @@ export default function OrderPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EA9841] mx-auto mb-4"></div>
-          <p className="text-[#1D4E1A]">Loading menu...</p>
+          <p className="text-[#1D4E1A] font-body">Loading menu...</p>
         </div>
       </div>
     )
@@ -103,13 +103,13 @@ export default function OrderPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-[#1D4E1A] mb-4">Error Loading Menu</h1>
-          <p className="text-[#1D4E1A] mb-6">{error}</p>
+          <h1 className="text-2xl font-bold text-[#1D4E1A] mb-4 font-display">Error Loading Menu</h1>
+          <p className="text-[#1D4E1A] mb-6 font-body">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="bg-[#EA9841] text-white px-6 py-3 rounded-md font-medium hover:bg-[#d88a3a] transition-colors"
+            className="bg-[#EA9841] text-white px-6 py-3 rounded-md font-medium hover:bg-[#d88a3a] transition-colors font-body"
           >
             Try Again
           </button>
@@ -119,12 +119,12 @@ export default function OrderPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FFF8E1]">
       {/* Header */}
-      <div className="bg-white shadow-md border-b border-[#8B4513]/20">
+              <div className="bg-[#FFECB8] shadow-md border-b border-[#EA9841]/20">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold text-[#2C1810] text-center">Order Online</h1>
-          <p className="text-[#2C1810] mt-3 text-center text-lg">Add items to your cart and checkout</p>
+          <h1 className="text-4xl font-bold text-[#2C1810] text-center font-display">Order Online</h1>
+          <p className="text-[#2C1810] mt-3 text-center text-lg font-body">Add items to your cart and checkout</p>
         </div>
       </div>
 
@@ -139,11 +139,11 @@ export default function OrderPage() {
                 className={`flex-shrink-0 px-4 py-2 rounded-full font-medium transition-all duration-200 text-sm flex items-center gap-2 whitespace-nowrap ${
                   activeCategory === category
                     ? 'bg-gradient-to-r from-[#8B4513] to-[#6B3410] text-white shadow-lg'
-                    : 'bg-[#F5F5DC] text-[#2C1810] hover:bg-[#8B4513] hover:text-white hover:shadow-md'
+                    : 'bg-[#FFF8E1] text-[#1D4E1A] hover:bg-[#1D4E1A] hover:text-white hover:shadow-md'
                 }`}
               >
                 <span className="text-base">{categoryIcons[category]}</span>
-                <span>{category}</span>
+                <span className="font-body">{category}</span>
               </button>
             ))}
           </div>
@@ -154,7 +154,7 @@ export default function OrderPage() {
         {/* Desktop Fixed Vertical Sidebar Navigation */}
         <div className="hidden md:block fixed left-0 top-0 h-full w-48 bg-white/95 backdrop-blur-sm shadow-xl border-r border-[#8B4513]/20 z-20 pt-32">
           <div className="p-3">
-            <h3 className="text-sm font-bold text-[#2C1810] mb-4 text-center uppercase tracking-wide">Categories</h3>
+            <h3 className="text-sm font-bold text-[#2C1810] mb-4 text-center uppercase tracking-wide font-display">Categories</h3>
             <nav className="space-y-1">
               {categories.map((category) => (
                 <button
@@ -163,11 +163,11 @@ export default function OrderPage() {
                   className={`w-full text-left px-3 py-2.5 rounded-lg font-medium transition-all duration-200 text-sm flex items-center gap-2 ${
                     activeCategory === category
                       ? 'bg-gradient-to-r from-[#8B4513] to-[#6B3410] text-white shadow-lg'
-                      : 'bg-[#F5F5DC]/50 text-[#2C1810] hover:bg-[#8B4513] hover:text-white hover:shadow-md'
+                      : 'bg-[#FFF8E1]/50 text-[#1D4E1A] hover:bg-[#1D4E1A] hover:text-white hover:shadow-md'
                   }`}
                 >
                   <span className="text-base">{categoryIcons[category]}</span>
-                  <span className="truncate">{category}</span>
+                  <span className="truncate font-body">{category}</span>
                 </button>
               ))}
             </nav>
@@ -185,19 +185,19 @@ export default function OrderPage() {
                   {filteredItems.map(item => (
                     <div key={item.id} className="bg-white rounded-lg shadow-md p-4 md:p-6 border border-[#8B4513]/20 hover:shadow-lg transition-shadow duration-300">
                       <div className="aspect-video bg-gradient-to-br from-[#F5F5DC] to-[#8B4513]/30 rounded-lg mb-4 flex items-center justify-center">
-                        <span className="text-[#2C1810] font-medium">{item.name}</span>
+                        <span className="text-[#2C1810] font-medium font-body">{item.name}</span>
                       </div>
-                      <h3 className="text-lg md:text-xl font-semibold text-[#2C1810] mb-2">{item.name}</h3>
-                      <p className="text-[#2C1810] mb-4">{item.description}</p>
+                      <h3 className="text-lg md:text-xl font-semibold text-[#2C1810] mb-2 font-display">{item.name}</h3>
+                      <p className="text-[#2C1810] mb-4 font-body">{item.description}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-xl md:text-2xl font-bold text-[#8B4513]">{formatPrice(item.price)}</span>
+                        <span className="text-xl md:text-2xl font-bold text-[#8B4513] font-body">{formatPrice(item.price)}</span>
                         <button
                           onClick={() => addToCart({
                             ...item,
                             image_url: item.image,
                             category: { name: activeCategory === 'All' ? 'Menu' : activeCategory }
                           })}
-                          className="bg-[#8B4513] text-white px-3 md:px-4 py-2 rounded-lg hover:bg-[#6B3410] transition-colors font-semibold text-sm md:text-base"
+                          className="bg-[#8B4513] text-white px-3 md:px-4 py-2 rounded-lg hover:bg-[#6B3410] transition-colors font-semibold text-sm md:text-base font-body"
                         >
                           Add to Cart
                         </button>
@@ -210,7 +210,7 @@ export default function OrderPage() {
               {/* Cart Section */}
               <div className="lg:col-span-1">
                 <div className="bg-white rounded-lg shadow-md p-4 md:p-6 sticky top-4 border border-[#8B4513]/20">
-                  <h2 className="text-lg md:text-xl font-bold text-[#2C1810] mb-4 md:mb-6 flex items-center">
+                  <h2 className="text-lg md:text-xl font-bold text-[#2C1810] mb-4 md:mb-6 flex items-center font-display">
                     <span className="mr-2">🛒</span>
                     Your Cart
                   </h2>
@@ -218,17 +218,17 @@ export default function OrderPage() {
                   {cart.length === 0 ? (
                     <div className="text-center py-6 md:py-8">
                       <div className="text-3xl md:text-4xl mb-4">🍽️</div>
-                      <p className="text-[#2C1810]">Your cart is empty</p>
-                      <p className="text-sm text-[#2C1810] mt-2">Add some delicious items to get started!</p>
+                      <p className="text-[#2C1810] font-body">Your cart is empty</p>
+                      <p className="text-sm text-[#2C1810] mt-2 font-body">Add some delicious items to get started!</p>
                     </div>
                   ) : (
                     <>
                       <div className="space-y-3 md:space-y-4 mb-4 md:mb-6 max-h-64 md:max-h-96 overflow-y-auto">
                         {cart.map((item, index) => (
-                          <div key={`${item.id}-${index}`} className="flex items-center justify-between p-3 bg-[#F5F5DC] rounded-lg">
+                          <div key={`${item.id}-${index}`} className="flex items-center justify-between p-3 bg-[#FFECB8] rounded-lg">
                             <div className="flex-1">
-                              <h4 className="font-medium text-[#2C1810] text-sm md:text-base">{item.name}</h4>
-                              <p className="text-[#8B4513] text-sm">{formatPrice(item.price)}</p>
+                              <h4 className="font-medium text-[#2C1810] text-sm md:text-base font-display">{item.name}</h4>
+                              <p className="text-[#8B4513] text-sm font-body">{formatPrice(item.price)}</p>
                             </div>
                             <div className="flex items-center gap-2">
                               <button
@@ -237,7 +237,7 @@ export default function OrderPage() {
                               >
                                 -
                               </button>
-                              <span className="text-[#2C1810] font-medium text-sm md:text-base min-w-[20px] text-center">
+                              <span className="text-[#2C1810] font-medium text-sm md:text-base min-w-[20px] text-center font-body">
                                 {item.quantity}
                               </span>
                               <button
@@ -253,13 +253,13 @@ export default function OrderPage() {
                       
                       <div className="border-t border-[#8B4513]/20 pt-3 md:pt-4">
                         <div className="flex justify-between items-center mb-3 md:mb-4">
-                          <span className="text-base md:text-lg font-semibold text-[#2C1810]">Total:</span>
-                          <span className="text-xl md:text-2xl font-bold text-[#8B4513]">{formatPrice(total)}</span>
+                          <span className="text-base md:text-lg font-semibold text-[#2C1810] font-display">Total:</span>
+                          <span className="text-xl md:text-2xl font-bold text-[#8B4513] font-body">{formatPrice(total)}</span>
                         </div>
                         <button 
                           onClick={() => router.push('/checkout')}
                           disabled={cart.length === 0}
-                          className={`w-full py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-colors ${
+                          className={`w-full py-2 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-colors font-body ${
                             cart.length === 0 
                               ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
                               : 'bg-[#2C1810] text-white hover:bg-[#1A0F09]'

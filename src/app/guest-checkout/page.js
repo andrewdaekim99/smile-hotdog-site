@@ -112,7 +112,7 @@ export default function GuestCheckoutPage() {
 
   if (cart.length === 0) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-[#1D4E1A] mb-4">Your cart is empty</h1>
           <p className="text-[#1D4E1A] mb-6">Add some delicious items to your cart first!</p>
@@ -128,7 +128,7 @@ export default function GuestCheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC] py-8">
+    <div className="min-h-screen bg-[#FFF8E1] py-8">
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-3xl font-bold text-[#1D4E1A] text-center mb-8">Guest Checkout</h1>
         

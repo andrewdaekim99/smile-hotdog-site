@@ -169,7 +169,7 @@ export default function CheckoutPage() {
 
   if (cart.length === 0) {
     return (
-      <div className="min-h-screen bg-[#F5F5DC] flex items-center justify-center">
+      <div className="min-h-screen bg-[#FFF8E1] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-[#1D4E1A] mb-4">Your cart is empty</h1>
           <p className="text-[#1D4E1A] mb-6">Add some delicious items to your cart first!</p>
@@ -185,7 +185,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5DC] py-8">
+    <div className="min-h-screen bg-[#FFF8E1] py-8">
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-3xl font-bold text-[#1D4E1A] text-center mb-8">Checkout</h1>
         
@@ -305,17 +305,17 @@ export default function CheckoutPage() {
                   
                   <div className="text-xs text-gray-600 mt-2">
                     <p><strong>Points:</strong> {user.points || 0} pts</p>
-                    <p className="text-xs text-gray-500">You can modify the contact information above if ordering for someone else.</p>
+                    <p className="text-xs text-gray-500">If you&apos;re ordering for someone else, update the info above.</p>
                   </div>
                 </div>
               </div>
             )}
 
             {/* Rewards Program Info */}
-            <div className="mt-6 p-4 bg-[#F5F5DC] rounded-md">
+                            <div className="mt-6 p-4 bg-[#FFECB8] rounded-md">
               <h3 className="font-medium text-[#1D4E1A] mb-2">Rewards Program</h3>
               <p className="text-sm text-[#1D4E1A]">
-                You'll earn {Math.floor(getCartTotal())} points for this order!
+                You&apos;ll earn {Math.floor(getCartTotal())} points for this order!
               </p>
               <p className="text-xs text-gray-600 mt-1">
                 {isAuthenticated 
