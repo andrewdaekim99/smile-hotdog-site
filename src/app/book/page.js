@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import Calendar from '@/components/Calendar'
 
 export default function BookPage() {
   const [formData, setFormData] = useState({
@@ -14,7 +13,6 @@ export default function BookPage() {
     guests: '',
     message: ''
   })
-  const [selectedDate, setSelectedDate] = useState(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -31,15 +29,6 @@ export default function BookPage() {
     }))
   }
 
-  const handleDateSelect = (date) => {
-    setSelectedDate(date)
-    const formattedDate = date.toISOString().split('T')[0]
-    setFormData(prev => ({
-      ...prev,
-      date: formattedDate
-    }))
-  }
-
   return (
     <div className="min-h-screen bg-[#FFF8E1]">
       {/* Header */}
@@ -53,10 +42,10 @@ export default function BookPage() {
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Booking Form */}
-            <div className="bg-white p-8 rounded-lg shadow-md border border-[#EA9841]/20">
+            <div className="lg:col-span-2 bg-white p-8 rounded-lg shadow-md border border-[#EA9841]/20">
               <h2 className="text-2xl font-bold text-[#1D4E1A] mb-6 font-display">Request a Booking</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -137,11 +126,6 @@ export default function BookPage() {
                       required
                       className="w-full px-3 py-2 border border-[#EA9841]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#EA9841] focus:border-transparent"
                     />
-                    {selectedDate && (
-                      <p className="text-sm text-[#EA9841] mt-1 font-body">
-                        Selected: {selectedDate.toLocaleDateString()}
-                      </p>
-                    )}
                   </div>
                   
                   <div>
@@ -212,14 +196,8 @@ export default function BookPage() {
               </form>
             </div>
 
-            {/* Calendar and Information Sidebar */}
-            <div className="space-y-8">
-              {/* Calendar */}
-              <Calendar 
-                onDateSelect={handleDateSelect}
-                selectedDate={selectedDate}
-              />
-
+            {/* Information Sidebar */}
+            <div className="space-y-6">
               {/* Information Sidebar */}
               <div className="bg-white p-6 rounded-lg shadow-md border border-[#EA9841]/20">
                 <h3 className="text-xl font-bold text-[#1D4E1A] mb-4 font-display">Why Choose Our Food Truck?</h3>
